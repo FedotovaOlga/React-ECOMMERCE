@@ -13,7 +13,22 @@ import Show from "./components/products/Show";
 
 export default function App() {
 
-  
+  const [name, setName] = useState("");
+
+  async function postName(e){
+    e.preventDefault();
+
+    try {
+      await fetch("http://localhost:4000/post_name", {
+        name
+    })
+   } catch (error) {
+      console.log(error);
+      
+    }
+  }
+
+
   const router = createBrowserRouter([
     {
       path: "/",
@@ -51,6 +66,12 @@ export default function App() {
 
   return(
     <div className="App">
+
+    <form onSubmit={postName}>
+      <input type="text" value={name} onChange={(e)=> setName(e.target.value)}/>
+      <button type="submit" value="Envoyer">Envoyer</button>
+    </form>
+
       {/* <Header />  surtout pas placer ça ici, ça fait un router dans un autre router */}
       <RouterProvider router={router} />
     </div>
