@@ -19,8 +19,12 @@ export default function App() {
     e.preventDefault();
 
     try {
-      await fetch("http://localhost:4000/post_name", {
-        name
+      await fetch ("http://localhost:4000/post_name", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ name })
     })
    } catch (error) {
       console.log(error);
