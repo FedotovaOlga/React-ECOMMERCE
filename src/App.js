@@ -1,85 +1,79 @@
-import React from "react"; // dans les versions précédentes fallait importer, ici pas besoin
-import { useEffect, useState } from "react";
-import "./App.css";
-import ProductList from "./components/products/ProductList";
-import Home from "./components/Home";
-import Contact from "./components/Contact";
-import NewProduct from "./components/products/NewProduct";
-import * as ReactDOM from "react-dom/client";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import "./index.css";
-import RouteLayout from "./components/RouteLayout";
-import Show from "./components/products/Show";
+// import React from "react"; // dans les versions précédentes fallait importer, ici pas besoin
+// import { useEffect, useState } from "react";
+// import "./App.css";
+// import ProductList from "./components/products/ProductList";
+// import Home from "./components/Home";
+// import Contact from "./components/Contact";
+// import NewProduct from "./components/products/NewProduct";
+// import * as ReactDOM from "react-dom/client";
+// import { createBrowserRouter, RouterProvider } from "react-router-dom";
+// import "./index.css";
+// import RouteLayout from "./components/RouteLayout";
+// import Show from "./components/products/Show";
+
+
+import React from "react";
+import Header from "./components/Header";
+import ProductList from "./components/ProductList";
 
 export default function App() {
 
-  const [name, setName] = useState("");
-
-  async function postName(e){
-    e.preventDefault();
-
-    try {
-      await fetch ("http://localhost:4000/post_name", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ name })
-    })
-   } catch (error) {
-      console.log(error);
-      
-    }
-  }
-
-
-  const router = createBrowserRouter([
-    {
-      path: "/",
-      element: <RouteLayout/>,
-      children:[
-        {
-          path: "",
-          element: <Home/>,
-        },
-
-        {
-          path: "contact",
-          element: <Contact/>,
-        },
-
-        {
-          path: "products",
-          element: <ProductList />,
-        },
-    
-        {
-          path: "new",
-          element: <NewProduct />,
-        },
-
-        {
-          path: "show/:id",
-          element: <Show />,
-        },
-      ]
-    },
-
-
-  ]);
-
-  return(
+  return (
     <div className="App">
-
-    <form onSubmit={postName}>
-      <input type="text" value={name} onChange={(e)=> setName(e.target.value)}/>
-      <button type="submit" value="Envoyer">Envoyer</button>
-    </form>
-
-      {/* <Header />  surtout pas placer ça ici, ça fait un router dans un autre router */}
-      <RouterProvider router={router} />
+      <Header />
+      <ProductList />
     </div>
   );
+}
+
+
+  // const router = createBrowserRouter([
+  //   {
+  //     path: "/",
+  //     element: <RouteLayout/>,
+  //     children:[
+  //       {
+  //         path: "",
+  //         element: <Home/>,
+  //       },
+
+  //       {
+  //         path: "contact",
+  //         element: <Contact/>,
+  //       },
+
+  //       {
+  //         path: "products",
+  //         element: <ProductList />,
+  //       },
+    
+  //       {
+  //         path: "new",
+  //         element: <NewProduct />,
+  //       },
+
+  //       {
+  //         path: "show/:id",
+  //         element: <Show />,
+  //       },
+  //     ]
+  //   },
+
+
+  // ]);
+
+  // return(
+  //   <div className="App">
+
+  //   <form onSubmit={postName}>
+  //     <input type="text" value={name} onChange={(e)=> setName(e.target.value)}/>
+  //     <button type="submit" value="Envoyer">Envoyer</button>
+  //   </form>
+
+  //     {/* <Header />  surtout pas placer ça ici, ça fait un router dans un autre router */}
+  //     <RouterProvider router={router} />
+  //   </div>
+  // );
 
   // import * as ReactDOM from "react-dom/client";
   // import {
@@ -176,4 +170,4 @@ export default function App() {
   //       </main>
   //     </div>
   //   );
-}
+// }

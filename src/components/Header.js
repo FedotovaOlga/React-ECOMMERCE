@@ -5,7 +5,7 @@ export default function Header() {
   return (
     <header>
         <h1>Moons and Eyes</h1>
-        <nav>
+        {/* <nav>
             <Link to="/">Home</Link>
             <br/>
             <Link to="/contact">Contact</Link>
@@ -16,7 +16,7 @@ export default function Header() {
             <br/>
             <Link to="/show">New Product</Link>
             <br/>
-    </nav>
+    </nav> */}
     </header>
   );
 };
