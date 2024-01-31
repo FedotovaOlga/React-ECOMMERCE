@@ -13,18 +13,34 @@
 
 
 import React from "react";
+import ReactDOM from "react-dom";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Header from "./components/Header";
 import ProductList from "./components/ProductList";
+import Home from "./components/Home/Home";
+
+const router = createBrowserRouter([
+  {
+    path: "/products",
+    element: <ProductList />,
+  },
+  {
+    path: "/",
+    element: <Home />,
+  },
+]);
 
 export default function App() {
 
   return (
-    <div className="App">
-      <Header />
-      <ProductList />
-    </div>
+    <>
+    <Header />
+    <RouterProvider router={router}/>
+    </>
   );
 }
+
+ReactDOM.createRoot(document.getElementById("root")).render(<App />);
 
 
   // const router = createBrowserRouter([
