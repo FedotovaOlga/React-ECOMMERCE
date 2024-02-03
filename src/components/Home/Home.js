@@ -17,7 +17,7 @@ const Home = () => {
         <h2>3D Models</h2>
         <ImageButton image={houses} text="Little Houses" onClick={() => {}} />
       <ImageButton image={lighthouses} text="Lighthouses" onClick={() => {}} />
-      
+       
     </div>
   );
 };

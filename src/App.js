@@ -18,6 +18,8 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Header from "./components/Header";
 import ProductList from "./components/ProductList";
 import Home from "./components/Home/Home";
+import ProductForm from "./components/ProductForm/ProductForm";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const router = createBrowserRouter([
   {
@@ -28,6 +30,11 @@ const router = createBrowserRouter([
     path: "/",
     element: <Home />,
   },
+
+  {
+    path: "/product-form",
+    element: <ProductForm />,
+  }
 ]);
 
 export default function App() {
