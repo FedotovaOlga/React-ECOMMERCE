@@ -42,9 +42,9 @@ const ProductForm = () => {
         <Form.Control type="text" placeholder="Enter description" name="description" value={product.description || ''} onChange={handleChange} />
       </Form.Group>
 
-      <Form.Group className="m-3" controlId="image">
+      <Form.Group className="m-3" controlId="thumbnail">
         <Form.Label>Image</Form.Label>
-        <Form.Control type="text" placeholder="Enter image URL" />
+        <Form.Control type="text" placeholder="Enter image URL" name="thumbnail" value={product.thumbnail || ''} onChange={handleChange} />
       </Form.Group>
 
       <Form.Group className="m-3" controlId="category">
