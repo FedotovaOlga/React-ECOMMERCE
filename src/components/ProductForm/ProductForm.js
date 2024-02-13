@@ -1,9 +1,21 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 
 const ProductForm = () => {
   const [product, setProduct] = useState({});
+  const { id } = useParams();
+
+  useEffect(() => {
+    if (id) {
+      fetch(`http://localhost:4000/products/${id}`)
+        .then((res) => res.json())
+        .then((data) => setProduct(data))
+        .catch((error) => console.error("Error:", error));
+    }
+  }, [id]);
+
 
   const handleChange = (e) => {
     setProduct({ ...product, [e.target.name]: e.target.value });

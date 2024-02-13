@@ -34,6 +34,11 @@ const router = createBrowserRouter([
   {
     path: "/product-form",
     element: <ProductForm />,
+  },
+
+  {
+    path:"/edit/:id",
+    element: <ProductForm />,
   }
 ]);
 
