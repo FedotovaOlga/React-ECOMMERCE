@@ -12,47 +12,48 @@
 // import Show from "./components/products/Show";
 
 
-import React from "react";
+import React, { StrictMode } from "react";
 import ReactDOM from "react-dom";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Header from "./components/Header";
 import ProductList from "./components/ProductList";
 import Home from "./components/Home/Home";
 import ProductForm from "./components/ProductForm/ProductForm";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-const router = createBrowserRouter([
-  {
-    path: "/products",
-    element: <ProductList />,
-  },
-  {
-    path: "/",
-    element: <Home />,
-  },
+// ReactDOM.render(
+//   <React.StrictMode>
+//     <Router>
+//       <Routes>
+//         <Route path="/" element={<Home />} />
+//         <Route path="/products" element={<ProductList />} />
+//         <Route path="/product-form" element={<ProductForm />} />
+//         <Route path="/edit/:id" element={<ProductForm />} />
+//       </Routes>
+//     </Router>
+//   </React.StrictMode>,
+//   document.getElementById("root")
+// );
 
-  {
-    path: "/product-form",
-    element: <ProductForm />,
-  },
-
-  {
-    path:"/edit/:id",
-    element: <ProductForm />,
-  }
-]);
 
 export default function App() {
 
   return (
     <>
     <Header />
-    <RouterProvider router={router}/>
+    <Router>
+      <Routes>
+        <Route exact path="/" element={<Home/>} />
+        <Route path="/products" element={<ProductList/>} />
+        <Route path="/product-form" element={<ProductForm/>} />
+        <Route path="/edit/:id" element={<ProductForm/>} />
+      </Routes>
+    </Router>
     </>
   );
 }
 
-ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+// ReactDOM.createRoot(document.getElementById("root")).render(<App />);
 
 
   // const router = createBrowserRouter([
